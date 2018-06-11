@@ -10,8 +10,14 @@ Project in JSF Framework.
 7. Import project to NetBeans.
 8. Run.
 
+# Project links
 
-Useful links
+Project Info: nr.6 http://aragorn.pb.bialystok.pl/~grekowj/iaid/ProjektyTematy/index.htm
+Project Description: http://archive.ics.uci.edu/ml/datasets/Post-Operative+Patient
+Project DataSet: http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-patient-data/post-operative.data
+Project Set Names: http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-patient-data/post-operative.names
+
+# Useful links (JSF Framework)
 
 http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czI/JFSTutorial_1.pdf
 
