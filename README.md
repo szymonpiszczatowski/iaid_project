@@ -12,17 +12,14 @@ Project in JSF Framework.
 
 # Project links
 
-Project Info: nr.6 http://aragorn.pb.bialystok.pl/~grekowj/iaid/ProjektyTematy/index.htm
-Project Description: http://archive.ics.uci.edu/ml/datasets/Post-Operative+Patient
-Project DataSet: http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-patient-data/post-operative.data
-Project Set Names: http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-patient-data/post-operative.names
+Project Info: nr.6 http://aragorn.pb.bialystok.pl/~grekowj/iaid/ProjektyTematy/index.htm <br />
+Project Description: http://archive.ics.uci.edu/ml/datasets/Post-Operative+Patient <br />
+Project DataSet: http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-patient-data/post-operative.data <br />
+Project Set Names: http://archive.ics.uci.edu/ml/machine-learning-databases/postoperative-patient-data/post-operative.names <br />
 
 # Useful links (JSF Framework)
 
-http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czI/JFSTutorial_1.pdf
-
-http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czII/Using%20Hibernate%20in%20a%20Web%20Application%20-%20NetBeans%20IDE%20Tutorial.pdf
-
-
-http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czIII/Generating%20a%20JavaServer%20Faces%202.0%20CRUD%20Application%20from%20a%20Database%20-%20NetBeans%20IDE%206.8_6.9%20Tutorial.pdf
+http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czI/JFSTutorial_1.pdf <br />
+http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czII/Using%20Hibernate%20in%20a%20Web%20Application%20-%20NetBeans%20IDE%20Tutorial.pdf <br />
+http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czIII/Generating%20a%20JavaServer%20Faces%202.0%20CRUD%20Application%20from%20a%20Database%20-%20NetBeans%20IDE%206.8_6.9%20Tutorial.pdf <br />
 
