@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditDatasetTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{datasetController.selected.id}" title="#{bundle.EditDatasetTitle_id}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_LCore}" for="LCore" />
+                    <h:inputText id="LCore" value="#{datasetController.selected.LCore}" title="#{bundle.EditDatasetTitle_LCore}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_LCore}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_LSurf}" for="LSurf" />
+                    <h:inputText id="LSurf" value="#{datasetController.selected.LSurf}" title="#{bundle.EditDatasetTitle_LSurf}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_LSurf}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_LO2}" for="LO2" />
+                    <h:inputText id="LO2" value="#{datasetController.selected.LO2}" title="#{bundle.EditDatasetTitle_LO2}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_LO2}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_LBp}" for="LBp" />
+                    <h:inputText id="LBp" value="#{datasetController.selected.LBp}" title="#{bundle.EditDatasetTitle_LBp}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_LBp}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_surfStbl}" for="surfStbl" />
+                    <h:inputText id="surfStbl" value="#{datasetController.selected.surfStbl}" title="#{bundle.EditDatasetTitle_surfStbl}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_surfStbl}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_coreStbl}" for="coreStbl" />
+                    <h:inputText id="coreStbl" value="#{datasetController.selected.coreStbl}" title="#{bundle.EditDatasetTitle_coreStbl}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_coreStbl}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_bpStbl}" for="bpStbl" />
+                    <h:inputText id="bpStbl" value="#{datasetController.selected.bpStbl}" title="#{bundle.EditDatasetTitle_bpStbl}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_bpStbl}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_comfort}" for="comfort" />
+                    <h:inputText id="comfort" value="#{datasetController.selected.comfort}" title="#{bundle.EditDatasetTitle_comfort}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_comfort}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_decistion}" for="decistion" />
+                    <h:inputText id="decistion" value="#{datasetController.selected.decistion}" title="#{bundle.EditDatasetTitle_decistion}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_decistion}"/>
+                    <h:outputLabel value="#{bundle.EditDatasetLabel_datasetType}" for="datasetType" />
+                    <h:inputText id="datasetType" value="#{datasetController.selected.datasetType}" title="#{bundle.EditDatasetTitle_datasetType}" required="true" requiredMessage="#{bundle.EditDatasetRequiredMessage_datasetType}"/>
+                </h:panelGrid>
+                <h:commandLink action="#{datasetController.update}" value="#{bundle.EditDatasetSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditDatasetViewLink}"/>
+                <br />
+                <h:commandLink action="#{datasetController.prepareList}" value="#{bundle.EditDatasetShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditDatasetIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

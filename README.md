@@ -1,5 +1,15 @@
 # iaid_project
 
+Project in JSF Framework.
+1. In phpmyadmin create database "iaid_project" and import "dataset.sql" file, which exist in project root folder.
+2. Open NetBeans and go to Services.
+3. Clcik right on Database and choose Create New Connection.
+4. Select Driver: MySql and click Next. Complete Database -> iaid_project, user name root and if you have password complete this fileds. After check connection "Test Connection". If successed click next -> next and finish.
+5. In database you should have new jdbc:mysql with database iaid_poroject and tables dataset.
+6. Import project to NetBeans.
+7. Run.
+
+
 Useful links
 
 http://aragorn.pb.bialystok.pl/~grekowj/pawd/JSF_czI/JFSTutorial_1.pdf
