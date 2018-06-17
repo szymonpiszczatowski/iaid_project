@@ -30,8 +30,8 @@
                         <f:validateLongRange minimum="0" maximum="100"/>
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateDatasetLabel_LBp}" for="LBp" />
-                    <h:inputText id="LBp" value="#{UserBean.newData.LBp}" title="#{bundle.CreateDatasetTitle_LBp}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_LBp}" validatorMessage="#{bundle.ErrorLBPValidation}">
-                        <f:validateLongRange minimum="0" maximum="300"/>
+                    <h:inputText id="LBp" value="#{UserBean.newData.LBp}" title="#{bundle.CreateDatasetTitle_LBp}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_LBp}" >
+                       <!-- <f:validateLongRange minimum="0" maximum="300"/>-->
                     </h:inputText>
                     <h:outputLabel value="#{bundle.CreateDatasetLabel_surfStbl}" for="surfStbl" />
                     <h:selectOneMenu value="#{UserBean.newData.surfStbl}">
@@ -52,7 +52,7 @@
                         <f:selectItem itemValue="unstable" itemLabel="unstable"/>
                     </h:selectOneMenu>
                     <h:outputLabel value="#{bundle.CreateDatasetLabel_comfort}" for="comfort"/>
-                    <h:inputText id="comfort" value="#{comfort}" title="#{bundle.CreateDatasetTitle_comfort}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_comfort}" validatorMessage="#{bundle.ErrorComfortValidation}">
+                    <h:inputText id="comfort" value="#{UserBean.newData.comfort}" title="#{bundle.CreateDatasetTitle_comfort}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_comfort}" validatorMessage="#{bundle.ErrorComfortValidation}">
                         <f:validateLongRange minimum="0" maximum="20"/>
                     </h:inputText>
                 </h:panelGrid>
