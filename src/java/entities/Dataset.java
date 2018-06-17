@@ -113,6 +113,19 @@ public class Dataset implements Serializable {
         this.decision = decision;
         this.datasetType = datasetType;
     }
+    
+    public Dataset(String lCore, String lSurf, String lO2, String lBp, String surfStbl, String coreStbl, String bpStbl, String comfort) {
+        this.lCore = lCore;
+        this.lSurf = lSurf;
+        this.lO2 = lO2;
+        this.lBp = lBp;
+        this.surfStbl = surfStbl;
+        this.coreStbl = coreStbl;
+        this.bpStbl = bpStbl;
+        this.comfort = comfort;
+        this.decision = "";
+        this.datasetType = 0;
+    }
 
     public Integer getId() {
         return id;

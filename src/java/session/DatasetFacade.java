@@ -6,8 +6,10 @@
 package session;
 
 import entities.Dataset;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 /**
@@ -28,4 +30,15 @@ public class DatasetFacade extends AbstractFacade<Dataset> {
         super(Dataset.class);
     }
     
+    /*public Dataset findDataSet(){
+        
+    }
+    public Dataset findByCos(Dataset data) {
+        try{
+            return em.createNamedQuery("Forum.findByCos").setParameter("status", status).getResultList();
+        }catch(NoResultException ex)
+        {
+            return null;
+        }
+    }*/
 }

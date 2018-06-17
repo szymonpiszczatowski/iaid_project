@@ -13,12 +13,14 @@ import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import weka.classifiers.Classifier;
+import weka.classifiers.trees.J48;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
 import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
 import weka.filters.Filter;
+import weka.filters.unsupervised.attribute.Discretize;
 import weka.filters.unsupervised.attribute.StringToNominal;
 
 /**
@@ -73,23 +75,47 @@ public class UserBean implements Serializable {
             data.setClassIndex(data.numAttributes() - 1);
 
             double[] instanceValue = new double[data.numAttributes()];
-            instanceValue[0] = data.attribute(0).addStringValue(ReplaceLCore(newData.getLCore()));
-            instanceValue[1] = data.attribute(1).addStringValue(ReplaceLSurf(newData.getLSurf()));
-            instanceValue[2] = data.attribute(2).addStringValue(ReplaceLO2(newData.getLO2()));
-            instanceValue[3] = data.attribute(3).addStringValue(newData.getLBp());
-            instanceValue[4] = data.attribute(4).addStringValue(newData.getSurfStbl());
-            instanceValue[5] = data.attribute(5).addStringValue(newData.getCoreStbl());
-            instanceValue[6] = data.attribute(6).addStringValue(newData.getBpStbl());
-            instanceValue[7] = data.attribute(7).addStringValue(newData.getComfort());
-            data.add(new DenseInstance(1.0, instanceValue));
+            /*instanceValue[0] = data.attribute(0).addStringValue(ReplaceLCore(newData.getLCore()));
+             instanceValue[1] = data.attribute(1).addStringValue(ReplaceLSurf(newData.getLSurf()));
+             instanceValue[2] = data.attribute(2).addStringValue(ReplaceLO2(newData.getLO2()));
+             instanceValue[3] = data.attribute(3).addStringValue(newData.getLBp());
+             instanceValue[4] = data.attribute(4).addStringValue(newData.getSurfStbl());
+             instanceValue[5] = data.attribute(5).addStringValue(newData.getCoreStbl());
+             instanceValue[6] = data.attribute(6).addStringValue(newData.getBpStbl());
+             instanceValue[7] = data.attribute(7).addStringValue(newData.getComfort());*/
+            instanceValue[0] = data.attribute(0).addStringValue("mid");
+            instanceValue[1] = data.attribute(1).addStringValue("high");
+            instanceValue[2] = data.attribute(2).addStringValue("excellent");
+            instanceValue[3] = data.attribute(3).addStringValue("high");
+            instanceValue[4] = data.attribute(4).addStringValue("stable");
+            instanceValue[5] = data.attribute(5).addStringValue("stable");
+            instanceValue[6] = data.attribute(6).addStringValue("stable");
+            instanceValue[7] = data.attribute(7).addStringValue("10");
+            
+            Instance i1 = new DenseInstance(1.0, instanceValue);
+            data.add(i1);
+            data.setClassIndex(data.numAttributes()-1);
+           // data.add(new DenseInstance(1.0, instanceValue));
+            
+            //String[] options = new String[2];
+           // options[0] = "-R";
+           // options[1] = "first-last";
+            
+            //StringToNominal stringNominal = new StringToNominal();
+            //stringNominal.setOptions(options);
+           // stringNominal.setInputFormat(data);
+            //data = Filter.useFilter(data, stringNominal);
+            
+            System.err.print(data.toString());
 
-            Instances dataUnlabeled = new Instances("TestInstances", atts, 0);
-            dataUnlabeled.add(new DenseInstance(1.0, instanceValue));
-            dataUnlabeled.setClassIndex(dataUnlabeled.numAttributes() - 1);
-            System.err.print(dataUnlabeled.toString());
+            //Instances dataUnlabeled = new Instances("TestInstances", atts, 0);
+           // dataUnlabeled.add(new DenseInstance(1.0, instanceValue));
+           //dataUnlabeled.setClassIndex(dataUnlabeled.numAttributes() - 1);
 
-            Classifier cls = (Classifier) weka.core.SerializationHelper.read("j48.model");
-            double result = cls.classifyInstance(dataUnlabeled.firstInstance());
+            J48 cls = (J48) weka.core.SerializationHelper.read("j48.model");
+            System.err.print(cls.toString());
+            double result = cls.classifyInstance(data.instance(0));
+
             System.err.print(result);
 
         } catch (Exception ex) {

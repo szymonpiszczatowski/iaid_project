@@ -81,18 +81,19 @@ public class AdminBean implements Serializable {
             instanceValue[8] = GetIntValueFromStringDecision(rowData.getDecision());
             dataRaw.add(new DenseInstance(1.0, instanceValue));
         }
+        
+        System.err.print(dataRaw.toString());
 
         String[] options = new String[2];
         options[0] = "-R";
         options[1] = "first-last";
-System.err.println(dataRaw);
+
         try {
             StringToNominal stringNominal = new StringToNominal();
             stringNominal.setOptions(options);
             stringNominal.setInputFormat(dataRaw);
             dataRaw = Filter.useFilter(dataRaw, stringNominal);
 
-            System.err.println(dataRaw);
             J48 J48tree = new J48();
             J48tree.buildClassifier(dataRaw);
             SerializationHelper.write("j48.model", J48tree);
