@@ -4,7 +4,7 @@ import javax.annotation.Generated;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-06-14T23:10:02")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-06-17T14:27:34")
 @StaticMetamodel(Dataset.class)
 public class Dataset_ { 
 
@@ -18,6 +18,6 @@ public class Dataset_ {
     public static volatile SingularAttribute<Dataset, Integer> datasetType;
     public static volatile SingularAttribute<Dataset, String> coreStbl;
     public static volatile SingularAttribute<Dataset, String> lO2;
-    public static volatile SingularAttribute<Dataset, Integer> comfort;
+    public static volatile SingularAttribute<Dataset, String> comfort;
 
 }

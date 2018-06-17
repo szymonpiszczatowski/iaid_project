@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Classification Object</title>
+    </h:head>
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ClassificationObject}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_LCore}" for="LCore" />
+                    <h:inputText id="LCore" value="#{UserBean.newData.LCore}" title="#{bundle.CreateDatasetTitle_LCore}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_LCore}" validatorMessage="#{bundle.ErrorLCoreValidation}">
+                        <f:validateLongRange minimum="0" maximum="100"/>
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_LSurf}" for="LSurf" />
+                    <h:inputText id="LSurf" value="#{UserBean.newData.LSurf}" title="#{bundle.CreateDatasetTitle_LSurf}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_LSurf}" validatorMessage="#{bundle.ErrorLSurfValidation}">
+                        <f:validateLongRange minimum="0" maximum="100"/>
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_LO2}" for="LO2" />
+                    <h:inputText id="LO2" value="#{UserBean.newData.LO2}" title="#{bundle.CreateDatasetTitle_LO2}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_LO2}" validatorMessage="#{bundle.ErrorLO2Validation}">
+                        <f:validateLongRange minimum="0" maximum="100"/>
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_LBp}" for="LBp" />
+                    <h:inputText id="LBp" value="#{UserBean.newData.LBp}" title="#{bundle.CreateDatasetTitle_LBp}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_LBp}" validatorMessage="#{bundle.ErrorLBPValidation}">
+                        <f:validateLongRange minimum="0" maximum="300"/>
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_surfStbl}" for="surfStbl" />
+                    <h:selectOneMenu value="#{UserBean.newData.surfStbl}">
+                        <f:selectItem itemValue="stable" itemLabel="stable"/>
+                        <f:selectItem itemValue="mod-stable" itemLabel="mod-stable"/>
+                        <f:selectItem itemValue="unstable" itemLabel="unstable"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_coreStbl}" for="coreStbl" />
+                    <h:selectOneMenu value="#{UserBean.newData.coreStbl}">
+                        <f:selectItem itemValue="stable" itemLabel="stable"/>
+                        <f:selectItem itemValue="mod-stable" itemLabel="mod-stable"/>
+                        <f:selectItem itemValue="unstable" itemLabel="unstable"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_bpStbl}" for="bpStbl" />
+                    <h:selectOneMenu value="#{UserBean.newData.bpStbl}">
+                        <f:selectItem itemValue="stable" itemLabel="stable"/>
+                        <f:selectItem itemValue="mod-stable" itemLabel="mod-stable"/>
+                        <f:selectItem itemValue="unstable" itemLabel="unstable"/>
+                    </h:selectOneMenu>
+                    <h:outputLabel value="#{bundle.CreateDatasetLabel_comfort}" for="comfort"/>
+                    <h:inputText id="comfort" value="#{comfort}" title="#{bundle.CreateDatasetTitle_comfort}" required="true" requiredMessage="#{bundle.CreateDatasetRequiredMessage_comfort}" validatorMessage="#{bundle.ErrorComfortValidation}">
+                        <f:validateLongRange minimum="0" maximum="20"/>
+                    </h:inputText>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{UserBean.Classify()}" value="#{bundle.Classify}" />
+                <br />
+                <br />
+                <h:outputLabel class="decision" value="#{UserBean.decision}" for="Decision" />
+                <br/>
+                <br/>
+                <h:link outcome="/index" value="#{bundle.BackToIndex}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+</html>
+

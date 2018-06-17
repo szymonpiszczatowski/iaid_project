@@ -140,3 +140,8 @@ input[type=submit]:hover {
     clear: both;
 }
 
+.decision {
+    font-size: 25px;
+    color: #e33b06;
+}
+

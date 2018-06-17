@@ -3,20 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/controllers/DatasetController.java</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/session/DatasetFacade.java</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/index.xhtml</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/dataset/Create.xhtml</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/beans/UserBean.java</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/dataset/View.xhtml</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/dataset/Edit.xhtml</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/controllers/util/PaginationHelper.java</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/controllers/util/JsfUtil.java</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/Bundle.properties</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/src/java/beans/AdminBean.java</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/resources/css/jsfcrud.css</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/template.xhtml</file>
-            <file>file:/C:/Users/piszc/Documents/NetBeansProjects/patient_project/web/dataset/List.xhtml</file>
+            <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/src/java/beans/AdminBean.java</file>
         </group>
     </open-files>
 </project-private>
