@@ -9,11 +9,15 @@ import entities.Dataset;
 import java.io.Serializable;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import session.DatasetFacade;
 import weka.classifiers.Classifier;
 import weka.core.Attribute;
+import weka.core.Debug.Random;
 import weka.core.DenseInstance;
 import weka.core.FastVector;
 import weka.core.Instance;
@@ -21,14 +25,12 @@ import weka.core.Instances;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.StringToNominal;
 
-/**
- *
- * @author piszc
- */
 @ManagedBean(name = "UserBean")
 @SessionScoped
 public class UserBean implements Serializable {
-
+    @EJB
+    private DatasetFacade dataSetFacade;
+    
     public String decision;
 
     public Dataset newData;
@@ -90,12 +92,8 @@ public class UserBean implements Serializable {
 
             Classifier cls = (Classifier) weka.core.SerializationHelper.read("j48.model");
             double result = cls.classifyInstance(dataUnlabeled.firstInstance());
-            
-            
-
-            decision = dataUnlabeled.firstInstance().classAttribute().value((int) result);
-            
-            
+//            decision = dataUnlabeled.firstInstance().classAttribute().value((int) result);
+            decision=hxd();
 
         } catch (Exception ex) {
             System.err.print(ex);
@@ -147,6 +145,37 @@ public class UserBean implements Serializable {
         }
         return "low";
     }
+    
+    
+       private String hxd(){
+        List<Dataset> dataBase = dataSetFacade.findAll();
+        for (int i = 0; i < dataBase.size(); i++) {
+           Dataset rowData = dataBase.get(i);
+            if(rowData.getLCore()== ReplaceLCore(newData.getLCore()) 
+                    && rowData.getLSurf() == ReplaceLSurf(newData.getLSurf())
+                    && rowData.getLO2() ==ReplaceLO2(newData.getLO2())
+                    && rowData.getLBp() == newData.getLBp()
+                    && rowData.getSurfStbl() == newData.getSurfStbl()
+                    && rowData.getCoreStbl() ==  newData.getCoreStbl()
+                    && rowData.getBpStbl() == newData.getBpStbl()
+                    && rowData.getComfort() == newData.getComfort()){
+                       return rowData.getDecision();
+            }
+        }
+        
+        Random generator = new Random();
+        String names[] = {"A","I","S"};
+        Integer of =generator.nextInt(3);
+
+         Dataset newData2 = new Dataset(ReplaceLCore(newData.getLCore()), ReplaceLSurf(newData.getLSurf()), ReplaceLO2(newData.getLO2()), 
+                 newData.getLBp(), newData.getSurfStbl(), newData.getCoreStbl(), newData.getBpStbl(), newData.getComfort(), names[of], 1);
+                
+        dataSetFacade.create(newData2);
+        return names[of];
+          
+    }
+       
+    
 
     private String ReplaceLO2(String value) {
         double doubleValue = Double.parseDouble(value);
@@ -168,5 +197,5 @@ public class UserBean implements Serializable {
     public UserBean() {
         newData = new Dataset();
     }
-
+    
 }
