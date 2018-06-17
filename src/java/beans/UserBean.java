@@ -92,8 +92,8 @@ public class UserBean implements Serializable {
 
             Classifier cls = (Classifier) weka.core.SerializationHelper.read("j48.model");
             double result = cls.classifyInstance(dataUnlabeled.firstInstance());
-//            decision = dataUnlabeled.firstInstance().classAttribute().value((int) result);
-            decision=hxd();
+            decision = dataUnlabeled.firstInstance().classAttribute().value((int) result);
+//            decision=hxd();
 
         } catch (Exception ex) {
             System.err.print(ex);

@@ -17,6 +17,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import session.DatasetFacade;
+import weka.classifiers.Evaluation;
 import weka.classifiers.trees.J48;
 import weka.core.Attribute;
 import weka.core.DenseInstance;
@@ -95,6 +96,19 @@ System.err.println(dataRaw);
             System.err.println(dataRaw);
             J48 J48tree = new J48();
             J48tree.buildClassifier(dataRaw);
+            
+            
+                                   Evaluation evaluation = new Evaluation(dataRaw);
+                        evaluation.evaluateModel(J48tree, dataRaw);
+
+                        System.out.println(evaluation.toSummaryString());
+            
+            
+            
+            
+            
+            
+            
             SerializationHelper.write("j48.model", J48tree);
 
             System.err.print(J48tree.toString());
