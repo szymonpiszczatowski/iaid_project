@@ -53,35 +53,25 @@ public class UserBean implements Serializable {
 
         try {
 
-            ArrayList<Attribute> attributeList = new ArrayList<Attribute>();
-
-            Attribute lcore = new Attribute("L-CORE");
-            Attribute lsure = new Attribute("L-SURF");
-            Attribute l02 = new Attribute("L-O2");
-            Attribute lbp = new Attribute("L-BP");
-            Attribute ss = new Attribute("SURF-STBL");
-            Attribute cs = new Attribute("CORE-STBL");
-            Attribute bs = new Attribute("BP-STBL");
-            Attribute comfort = new Attribute("COMFORT");
-
-            attributeList.add(lcore);
-            attributeList.add(lsure);
-            attributeList.add(l02);
-            attributeList.add(lbp);
-            attributeList.add(ss);
-            attributeList.add(cs);
-            attributeList.add(bs);
-            attributeList.add(comfort);
-
-            ArrayList<String> classVal = new ArrayList<String>();
+            FastVector<Attribute> atts = new FastVector<Attribute>();
+            FastVector<String> classVal = new FastVector<String>();
             classVal.add("I");
             classVal.add("S");
             classVal.add("A");
-            attributeList.add(new Attribute("@@class@@", classVal));
 
-            Instances data = new Instances("TestInstances", attributeList, 0);
+            atts.add(new Attribute("L-CORE", (FastVector) null));
+            atts.add(new Attribute("L-SURF", (FastVector) null));
+            atts.add(new Attribute("L-O2", (FastVector) null));
+            atts.add(new Attribute("L-BP", (FastVector) null));
+            atts.add(new Attribute("SURF-STBL", (FastVector) null));
+            atts.add(new Attribute("CORE-STBL", (FastVector) null));
+            atts.add(new Attribute("BP-STBL", (FastVector) null));
+            atts.add(new Attribute("COMFORT", (FastVector) null));
+            atts.add(new Attribute("@@class@@", classVal));
+
+            Instances data = new Instances("TestInstances", atts, 0);
             data.setClassIndex(data.numAttributes() - 1);
-            
+
             double[] instanceValue = new double[data.numAttributes()];
             instanceValue[0] = data.attribute(0).addStringValue(ReplaceLCore(newData.getLCore()));
             instanceValue[1] = data.attribute(1).addStringValue(ReplaceLSurf(newData.getLSurf()));
@@ -92,25 +82,14 @@ public class UserBean implements Serializable {
             instanceValue[6] = data.attribute(6).addStringValue(newData.getBpStbl());
             instanceValue[7] = data.attribute(7).addStringValue(newData.getComfort());
             data.add(new DenseInstance(1.0, instanceValue));
-            
-            Instances dataUnlabeled = new Instances("TestInstances", attributeList, 0);
+
+            Instances dataUnlabeled = new Instances("TestInstances", atts, 0);
             dataUnlabeled.add(new DenseInstance(1.0, instanceValue));
-            dataUnlabeled.setClassIndex(dataUnlabeled.numAttributes() - 1);   
-
-           /* inst_co.setValue(lcore, ReplaceLCore(newData.getLCore()));
-            inst_co.setValue(lsure, ReplaceLSurf(newData.getLSurf()));
-            inst_co.setValue(l02, ReplaceLO2(newData.getLO2()));
-            inst_co.setValue(lbp, "a");
-            inst_co.setValue(ss, newData.getSurfStbl());
-            inst_co.setValue(cs, newData.getCoreStbl());
-            inst_co.setValue(bs, newData.getBpStbl());
-            inst_co.setValue(comfort, newData.getComfort());
-            data.add(inst_co);*/
-
+            dataUnlabeled.setClassIndex(dataUnlabeled.numAttributes() - 1);
+            System.err.print(dataUnlabeled.toString());
 
             Classifier cls = (Classifier) weka.core.SerializationHelper.read("j48.model");
             double result = cls.classifyInstance(dataUnlabeled.firstInstance());
-            //System.err.print(cls.toString());
             System.err.print(result);
 
         } catch (Exception ex) {
