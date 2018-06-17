@@ -19,7 +19,8 @@
                     <h:outputText value="#{datasetController.pagination.pageFirstItem + 1}..#{datasetController.pagination.pageLastItem + 1}/#{datasetController.pagination.itemsCount}"/>&nbsp;
                     <h:commandLink action="#{datasetController.previous}" value="#{bundle.Previous} #{datasetController.pagination.pageSize}" rendered="#{datasetController.pagination.hasPreviousPage}"/>&nbsp;
                     <h:commandLink action="#{datasetController.next}" value="#{bundle.Next} #{datasetController.pagination.pageSize}" rendered="#{datasetController.pagination.hasNextPage}"/>&nbsp;
-                    <h:dataTable value="#{datasetController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                    
+                    <h:dataTable value="#{datasetController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rules="all" rowClasses="customers th, customers tr" styleClass="customers">
                         <h:column>
                             <f:facet name="header">
                                 <h:outputText value="#{bundle.ListDatasetTitle_id}"/>
