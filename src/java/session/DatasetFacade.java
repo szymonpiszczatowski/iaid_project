@@ -30,15 +30,18 @@ public class DatasetFacade extends AbstractFacade<Dataset> {
         super(Dataset.class);
     }
     
-    /*public Dataset findDataSet(){
-        
-    }
     public Dataset findByCos(Dataset data) {
         try{
-            return em.createNamedQuery("Forum.findByCos").setParameter("status", status).getResultList();
+            return (Dataset) em.createNamedQuery("Dataset.findByCos").setParameter("lCore", data.getLCore()).setParameter("lSurf", data.getLSurf()).
+                    setParameter("lO2", data.getLO2()).
+                    setParameter("lBp", data.getLBp()).
+                    setParameter("surfStbl", data.getSurfStbl()).
+                    setParameter("coreStbl", data.getCoreStbl()).
+                    setParameter("comfort", data.getComfort()).
+                    getSingleResult();
         }catch(NoResultException ex)
         {
             return null;
         }
-    }*/
+    }
 }

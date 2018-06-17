@@ -27,6 +27,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @NamedQueries({
     @NamedQuery(name = "Dataset.findAll", query = "SELECT d FROM Dataset d"),
     @NamedQuery(name = "Dataset.findById", query = "SELECT d FROM Dataset d WHERE d.id = :id"),
+    @NamedQuery(name = "Dataset.findByCos", query = "SELECT d FROM Dataset d WHERE d.lCore = :lCore and d.lSurf = :lSurf and d.lO2 = :lO2 and d.lBp = :lBp and d.surfStbl = :surfStbl and d.coreStbl = :coreStbl and d.comfort = :comfort"),
     @NamedQuery(name = "Dataset.findByLCore", query = "SELECT d FROM Dataset d WHERE d.lCore = :lCore"),
     @NamedQuery(name = "Dataset.findByLSurf", query = "SELECT d FROM Dataset d WHERE d.lSurf = :lSurf"),
     @NamedQuery(name = "Dataset.findByLO2", query = "SELECT d FROM Dataset d WHERE d.lO2 = :lO2"),
@@ -123,8 +124,6 @@ public class Dataset implements Serializable {
         this.coreStbl = coreStbl;
         this.bpStbl = bpStbl;
         this.comfort = comfort;
-        this.decision = "";
-        this.datasetType = 0;
     }
 
     public Integer getId() {
@@ -239,5 +238,7 @@ public class Dataset implements Serializable {
     public String toString() {
         return "entity.Dataset[ id=" + id + " ]";
     }
+    
+    
     
 }

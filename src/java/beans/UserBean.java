@@ -10,8 +10,11 @@ import java.io.Serializable;
 import static java.lang.Integer.parseInt;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import session.DatasetFacade;
 import weka.classifiers.Classifier;
 import weka.classifiers.trees.J48;
 import weka.core.Attribute;
@@ -31,6 +34,10 @@ import weka.filters.unsupervised.attribute.StringToNominal;
 @SessionScoped
 public class UserBean implements Serializable {
 
+        @EJB
+    private DatasetFacade dataSetFacade;
+
+    
     public String decision;
 
     public Dataset newData;
@@ -117,6 +124,19 @@ public class UserBean implements Serializable {
             double result = cls.classifyInstance(data.instance(0));
 
             System.err.print(result);
+            
+            Dataset dataP = new Dataset("mid","high","excellent","high","stable","stable","stable","10");
+
+            Dataset dataS = dataSetFacade.findByCos(dataP);
+            
+            System.out.print("aaa " + dataS);
+            
+            if (dataS != null) {
+                System.err.print(dataS.getDecision());
+            }else{
+                Random gen = new Random(3);
+                System.err.print(gen.nextInt()+1);
+            }
 
         } catch (Exception ex) {
             System.err.print(ex);

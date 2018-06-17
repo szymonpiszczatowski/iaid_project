@@ -11,7 +11,10 @@
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/src/java/Bundle.properties</file>
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/web/dataset/Create.xhtml</file>
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/web/dataset/List.xhtml</file>
+            <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/src/java/entities/Dataset.java</file>
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/web/index.xhtml</file>
+            <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/web/user/classification.xhtml</file>
+            <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/src/java/session/DatasetFacade.java</file>
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/src/java/controllers/util/PaginationHelper.java</file>
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/nbproject/build-impl.xml</file>
             <file>file:/C:/Users/piszc/Desktop/iaid_project/iaid_project/src/java/beans/UserBean.java</file>
