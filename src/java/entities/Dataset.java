@@ -9,6 +9,8 @@ import java.io.Serializable;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
@@ -19,7 +21,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author piszc
+ * @author macie
  */
 @Entity
 @Table(name = "dataset")
@@ -40,8 +42,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Dataset implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
-    @NotNull
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
@@ -81,7 +83,7 @@ public class Dataset implements Serializable {
     private String bpStbl;
     @Basic(optional = false)
     @NotNull
-    @Size(min=1, max = 255)
+    @Size(min = 1, max = 255)
     @Column(name = "comfort")
     private String comfort;
     @Basic(optional = false)
@@ -101,7 +103,8 @@ public class Dataset implements Serializable {
         this.id = id;
     }
 
-    public Dataset(String lCore, String lSurf, String lO2, String lBp, String surfStbl, String coreStbl, String bpStbl, String comfort, String decision, int datasetType) {
+    public Dataset(Integer id, String lCore, String lSurf, String lO2, String lBp, String surfStbl, String coreStbl, String bpStbl, String comfort, String decision, int datasetType) {
+        this.id = id;
         this.lCore = lCore;
         this.lSurf = lSurf;
         this.lO2 = lO2;
@@ -224,7 +227,7 @@ public class Dataset implements Serializable {
 
     @Override
     public String toString() {
-        return "entity.Dataset[ id=" + id + " ]";
+        return "entities.Dataset[ id=" + id + " ]";
     }
     
 }

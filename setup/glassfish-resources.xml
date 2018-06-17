@@ -6,9 +6,10 @@
         <property name="portNumber" value="3306"/>
         <property name="databaseName" value="iaid_project"/>
         <property name="User" value="root"/>
-        <property name="Password" value="root"/>
+        <property name="Password" value=""/>
         <property name="URL" value="jdbc:mysql://localhost:3306/iaid_project?zeroDateTimeBehavior=convertToNull"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="iaid_datasource" object-type="user" pool-name="mysql_iaid_project_rootPool"/>
+    <jdbc-resource enabled="true" jndi-name="iaid_ds" object-type="user" pool-name="mysql_iaid_project_rootPool"/>
 </resources>
