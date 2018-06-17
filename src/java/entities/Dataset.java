@@ -35,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Dataset.findByCoreStbl", query = "SELECT d FROM Dataset d WHERE d.coreStbl = :coreStbl"),
     @NamedQuery(name = "Dataset.findByBpStbl", query = "SELECT d FROM Dataset d WHERE d.bpStbl = :bpStbl"),
     @NamedQuery(name = "Dataset.findByComfort", query = "SELECT d FROM Dataset d WHERE d.comfort = :comfort"),
-    @NamedQuery(name = "Dataset.findByDecistion", query = "SELECT d FROM Dataset d WHERE d.decistion = :decistion"),
+    @NamedQuery(name = "Dataset.findByDecision", query = "SELECT d FROM Dataset d WHERE d.decision = :decision"),
     @NamedQuery(name = "Dataset.findByDatasetType", query = "SELECT d FROM Dataset d WHERE d.datasetType = :datasetType")})
 public class Dataset implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -81,14 +81,14 @@ public class Dataset implements Serializable {
     private String bpStbl;
     @Basic(optional = false)
     @NotNull
-    @Size(min = 1, max = 255)
+    @Size(min=1, max = 255)
     @Column(name = "comfort")
     private String comfort;
     @Basic(optional = false)
     @NotNull
     @Size(min = 1, max = 255)
-    @Column(name = "decistion")
-    private String decistion;
+    @Column(name = "decision")
+    private String decision;
     @Basic(optional = false)
     @NotNull
     @Column(name = "dataset_type")
@@ -101,8 +101,7 @@ public class Dataset implements Serializable {
         this.id = id;
     }
 
-    public Dataset(Integer id, String lCore, String lSurf, String lO2, String lBp, String surfStbl, String coreStbl, String bpStbl, String comfort, String decistion, int datasetType) {
-        this.id = id;
+    public Dataset(String lCore, String lSurf, String lO2, String lBp, String surfStbl, String coreStbl, String bpStbl, String comfort, String decision, int datasetType) {
         this.lCore = lCore;
         this.lSurf = lSurf;
         this.lO2 = lO2;
@@ -111,7 +110,7 @@ public class Dataset implements Serializable {
         this.coreStbl = coreStbl;
         this.bpStbl = bpStbl;
         this.comfort = comfort;
-        this.decistion = decistion;
+        this.decision = decision;
         this.datasetType = datasetType;
     }
 
@@ -187,12 +186,12 @@ public class Dataset implements Serializable {
         this.comfort = comfort;
     }
 
-    public String getDecistion() {
-        return decistion;
+    public String getDecision() {
+        return decision;
     }
 
-    public void setDecistion(String decistion) {
-        this.decistion = decistion;
+    public void setDecision(String decision) {
+        this.decision = decision;
     }
 
     public int getDatasetType() {
