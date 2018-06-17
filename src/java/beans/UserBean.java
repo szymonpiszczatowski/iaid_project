@@ -86,17 +86,22 @@ public class UserBean implements Serializable {
             Instances dataUnlabeled = new Instances("TestInstances", atts, 0);
             dataUnlabeled.add(new DenseInstance(1.0, instanceValue));
             dataUnlabeled.setClassIndex(dataUnlabeled.numAttributes() - 1);
-            System.err.print(dataUnlabeled.toString());
+//            System.err.print(dataUnlabeled.toString());
 
             Classifier cls = (Classifier) weka.core.SerializationHelper.read("j48.model");
             double result = cls.classifyInstance(dataUnlabeled.firstInstance());
-            System.err.print(result);
+            
+            
+
+            decision = dataUnlabeled.firstInstance().classAttribute().value((int) result);
+            
+            
 
         } catch (Exception ex) {
             System.err.print(ex);
         }
 
-        decision = "Jesteś psem!";
+        
     }
 
     /**
