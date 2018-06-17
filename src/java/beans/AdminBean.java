@@ -23,6 +23,7 @@ import weka.core.DenseInstance;
 import weka.core.FastVector;
 import weka.core.Instance;
 import weka.core.Instances;
+import weka.core.SerializationHelper;
 import weka.filters.Filter;
 import weka.filters.unsupervised.attribute.Remove;
 import weka.filters.unsupervised.attribute.StringToNominal;
@@ -94,6 +95,8 @@ public class AdminBean implements Serializable {
            // System.err.println(dataRaw);
             J48 J48tree = new J48();
             J48tree.buildClassifier(dataRaw);
+            SerializationHelper.write("j48.model", J48tree);
+
             System.err.print(J48tree.toString());
         } catch (Exception ex) {
             System.err.println(ex);
